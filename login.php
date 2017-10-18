@@ -54,32 +54,29 @@ else {
 }
 
 ?>
-<html>
-<head>
-<title>
-Login...    
-</title>    
-</head>
-<body>  
-<link rel="stylesheet" href="styling.css">
-<?php
-  if ($fehlgeschlagen == true) {
-    $_SESSION["error"] = "Falscher Nutzername/Passwort";
-      echo "Login fehlgeschlagen!";
-      echo '<script type="text/javascript">
-           window.location = "index.php"
-      </script>';
-  }
-  else {
-    echo "Login erfolgreich!";
-    echo '<script type="text/javascript">
-    window.location = "mainpage.php"
-    </script>'; 
-  }
-?>
-<br />
-<br />
-<br />
-<a href="mainpage.php">Weiter</a>
-</body>
+
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Login...</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styling.css">
+    </head>
+    <body>
+    <?php
+        if ($fehlgeschlagen == true) {
+            $_SESSION["error"] = "Falscher Nutzername/Passwort";
+            echo "Login fehlgeschlagen!";
+            Header('Location: index.php');
+        } else {
+            echo "Login erfolgreich!";
+            Header('Location: mainpage.php');
+        }
+        ?>
+        <br />
+        <br />
+        <br />
+        <a href="mainpage.php">Weiter</a>
+    </body>
 </html>

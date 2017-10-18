@@ -1,8 +1,11 @@
 <?php
-session_start();
-unset($_SESSION["name"]);
-unset($_SESSION["id"]);
-echo '<script type="text/javascript">
-window.location = "index.html"
-</script>';
+    session_start();
+    unset($_SESSION["name"]);
+    unset($_SESSION["id"]);
+    session_destroy();
+
+    // Redirect to index.html after logout
+    Header('Location: index.html');
+    die();
+
 ?>
